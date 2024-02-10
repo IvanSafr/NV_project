@@ -24,5 +24,6 @@ urlpatterns = [
     #path('', include('main.urls')),
     path("", views.index),
     path("staff/", views.ourStaff),
+    path('vacation/', views.ourVac),
     path('admin/', admin.site.urls),
 ]

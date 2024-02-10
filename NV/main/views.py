@@ -6,7 +6,6 @@ from . models import People, VisRate, Profession
 # Create your views here.
 
 def index(request):
-    #return HttpResponse("Главная")
     return render(request, 'index.html')
 
 def ourStaff(request):
@@ -17,3 +16,14 @@ def ourStaff(request):
 
     print(profs, staff)
     return render(request, 'staf.html', context={"staff": staff, "profs": profs})
+
+def ourVac(request):
+    profs = Profession.objects.all()
+
+    prof_names = list()
+    for prof in profs:
+        prow_worker_cnt = str(len(People.objects.filter(profile=prof)))
+        prof_names.append([prof.profession, prow_worker_cnt])
+
+    return render(request, 'profs.html', context={"profs": prof_names, "title": "Работники"})
+

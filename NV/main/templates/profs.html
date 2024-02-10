@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    {% for person in staff %}
+    {% for prof in profs %}
     <div class="pers_card">
-        <p>{{person.name}}</p>
-        <p>{{person.profile.profession}}</p>
-        <p>{{person.discription}}</p>
+        <p>{{prof.0}}</p>
+        <p>Работников: {{prof.1}}</p>
+        <p>тег {{ key }}</p>
     </div>
     {% endfor%}
 </div>
